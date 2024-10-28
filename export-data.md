@@ -1,3 +1,4 @@
+```js
 // Fonction pour convertir un tableau d'objets en CSV et télécharger automatiquement le fichier
 function exportToCSV(data, filename = 'data.csv') {
     // Convertit chaque objet en une ligne CSV, en entourant les valeurs de guillemets pour éviter les erreurs avec des virgules dans les valeurs
@@ -14,6 +15,7 @@ function exportToCSV(data, filename = 'data.csv') {
     link.download = filename;
     link.click();
 }
+```
 
 Explication de chaque étape :
 
@@ -26,10 +28,7 @@ Explication de chaque étape :
 3. Lien de téléchargement automatique : Crée un lien invisible et déclenche le téléchargement.
 
 
-
-
----
-
+```js
 // Fonction pour convertir un tableau d'objets en fichier Excel et télécharger automatiquement le fichier
 function exportToExcel(data, filename = 'data.xlsx') {
     // Convertit les données en une feuille de calcul avec `json_to_sheet` de la bibliothèque XLSX
@@ -43,6 +42,7 @@ function exportToExcel(data, filename = 'data.xlsx') {
     XLSX.writeFile(workbook, filename);
 }
 
+```
 Explication de chaque étape :
 
 1. Conversion en feuille Excel : Utilise json_to_sheet pour transformer le tableau d'objets en une feuille de calcul Excel.
@@ -53,11 +53,7 @@ Explication de chaque étape :
 
 3. Téléchargement du fichier : La fonction writeFile enregistre et télécharge le fichier.
 
-
-
-
----
-
+```js
 // Fonction pour convertir un tableau d'objets en fichier PDF et télécharger automatiquement le fichier
 function exportToPDF(data, filename = 'data.pdf') {
     // Initialisation de jsPDF pour créer un document PDF
@@ -80,6 +76,7 @@ function exportToPDF(data, filename = 'data.pdf') {
     // Génère et télécharge le fichier PDF
     doc.save(filename);
 }
+```
 
 Explication de chaque étape :
 
