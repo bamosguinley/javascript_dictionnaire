@@ -93,6 +93,29 @@ Explication de chaque étape :
 
 ---
 
+```js
+/**
+ * Convertir le tableau en CSV et le télécharger
+ */
+function tableToCSV() {
+  const rows = document.querySelectorAll("table tr");
+  const csvContent = Array.from(rows) //Convertire la NodeList de lignes en un tableau en utilisant `Array.from(rows)`
+    .map((row) =>
+      Array.from(row.cells)
+        .map((cell) => cell.innerText.replace(/"/g, '""')) // Échapper les guillemets
+        .join(",")
+    )
+    .join("\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.setAttribute("download", "etat-numerotation.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+```
 Exemple d'utilisation de toutes les fonctions
 
 // Exemple de données à exporter
